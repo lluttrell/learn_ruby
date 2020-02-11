@@ -2,8 +2,11 @@
 
 def translate_single_word word
     new_word = ""
-    first_vowel = /[aeiouy]/ =~ word
-    if first_vowel == 0
+    first_vowel = /[aeioy]/ =~ word
+    first_qu = /qu/ =~ word
+    if first_qu == 0
+        new_word += word[2..-1] + "quay"
+    elsif first_vowel == 0
         new_word += word + "ay" 
     else
         new_word = word[first_vowel..-1] + word[0..first_vowel-1] + "ay"  
